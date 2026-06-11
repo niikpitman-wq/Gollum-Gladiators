@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://72q7ewwno6fg" path="res://Sprites/Robot Sprite/Run Red Robot.png" id="4_xvxua"]
 [ext_resource type="Texture2D" uid="uid://722ucajetkg" path="res://Sprites/icon.svg" id="5_60wmb"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_irwgg"]
+atlas = ExtResource("3_irwgg")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvxua"]
+atlas = ExtResource("3_irwgg")
+region = Rect2(0, 320, 320, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
 atlas = ExtResource("2_60wmb")
 region = Rect2(0, 0, 320, 320)
@@ -33,10 +41,6 @@ region = Rect2(320, 0, 320, 320)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
 atlas = ExtResource("3_irwgg")
 region = Rect2(0, 320, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("3_irwgg")
-region = Rect2(320, 320, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
 atlas = ExtResource("4_xvxua")
@@ -73,6 +77,17 @@ region = Rect2(320, 640, 320, 320)
 [sub_resource type="SpriteFrames" id="SpriteFrames_2nhjh"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irwgg")
+}, {
+"duration": 100.0,
+"texture": SubResource("AtlasTexture_xvxua")
+}],
+"loop": true,
+"name": &"double_jump",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_rj586")
 }, {
@@ -90,17 +105,14 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_x0ka3")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_0h7mo")
 }, {
-"duration": 1.0,
+"duration": 100.0,
 "texture": SubResource("AtlasTexture_nr8wp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2bti")
 }],
 "loop": true,
 "name": &"jump",
@@ -140,7 +152,7 @@ animations = [{
 size = Vector2(73, 234.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irwgg"]
-size = Vector2(1152, 184)
+size = Vector2(7048, 184)
 
 [node name="Node2D" type="Node2D" unique_id=811445578]
 
@@ -148,25 +160,38 @@ size = Vector2(1152, 184)
 script = ExtResource("1_l42dj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=809036487]
-position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_2nhjh")
-animation = &"run"
-autoplay = "idel"
-frame_progress = 0.25518173
+animation = &"double_jump"
+autoplay = "run"
+frame_progress = 0.19500175
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1217899386]
-position = Vector2(8, 13.25)
 shape = SubResource("RectangleShape2D_bjha6")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=203657253]
+position = Vector2(0, -320)
+zoom = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=435922850]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1691668857]
-position = Vector2(1.5258789e-05, 228)
-scale = Vector2(8.999999, 1.4374999)
+position = Vector2(3036, 228)
+scale = Vector2(56.4375, 1.4374999)
 texture = ExtResource("5_60wmb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=820115283]
-position = Vector2(0, 228)
+position = Vector2(2948, 228)
+shape = SubResource("RectangleShape2D_irwgg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=304544178]
+position = Vector2(992, -888)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/StaticBody2D" unique_id=270785085]
+position = Vector2(3036, 228)
+scale = Vector2(56.4375, 1.4374999)
+texture = ExtResource("5_60wmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=712707479]
+position = Vector2(2948, 228)
 shape = SubResource("RectangleShape2D_irwgg")
