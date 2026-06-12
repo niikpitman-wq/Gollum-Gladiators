@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djhd5cimwp16"
-path="res://.godot/imported/Reverse Run Red Robot.png-3d14aadcf9d204ba47ed8a4aa03c298d.ctex"
+uid="uid://ciid7ge01jl1y"
+path="res://.godot/imported/Double Jump Red Robot (1).png-cdb5fac0f70de231f18754740faeecf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Robot Sprite/Reverse Run Red Robot.png"
-dest_files=["res://.godot/imported/Reverse Run Red Robot.png-3d14aadcf9d204ba47ed8a4aa03c298d.ctex"]
+source_file="res://Sprites/Robot Sprite/Double Jump Red Robot (1).png"
+dest_files=["res://.godot/imported/Double Jump Red Robot (1).png-cdb5fac0f70de231f18754740faeecf3.ctex"]
 
 [params]
 

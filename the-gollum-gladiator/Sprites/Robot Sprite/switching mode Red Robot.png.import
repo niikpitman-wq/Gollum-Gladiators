@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7rd3p6q2l287"
-path="res://.godot/imported/Jump Red Robot.png-0aa4da967d11f527b147c47b8976e2d6.ctex"
+uid="uid://dymrp7cky8vvb"
+path="res://.godot/imported/switching mode Red Robot.png-a401162bad3f9d59f4fa0263d60c25e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Robot Sprite/Jump Red Robot.png"
-dest_files=["res://.godot/imported/Jump Red Robot.png-0aa4da967d11f527b147c47b8976e2d6.ctex"]
+source_file="res://Sprites/Robot Sprite/switching mode Red Robot.png"
+dest_files=["res://.godot/imported/switching mode Red Robot.png-a401162bad3f9d59f4fa0263d60c25e3.ctex"]
 
 [params]
 

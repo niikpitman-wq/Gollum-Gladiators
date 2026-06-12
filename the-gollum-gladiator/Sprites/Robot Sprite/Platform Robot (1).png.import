@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7rd3p6q2l287"
-path="res://.godot/imported/Jump Red Robot.png-0aa4da967d11f527b147c47b8976e2d6.ctex"
+uid="uid://cjwwb4ajrwscy"
+path="res://.godot/imported/Platform Robot (1).png-8b4a81d17cc184efeeaf0c6d45d65ed5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Robot Sprite/Jump Red Robot.png"
-dest_files=["res://.godot/imported/Jump Red Robot.png-0aa4da967d11f527b147c47b8976e2d6.ctex"]
+source_file="res://Sprites/Robot Sprite/Platform Robot (1).png"
+dest_files=["res://.godot/imported/Platform Robot (1).png-8b4a81d17cc184efeeaf0c6d45d65ed5.ctex"]
 
 [params]
 
