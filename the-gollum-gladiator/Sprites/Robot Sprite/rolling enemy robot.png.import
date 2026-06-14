@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwwb4ajrwscy"
-path="res://.godot/imported/Platform Robot (1).png-8b4a81d17cc184efeeaf0c6d45d65ed5.ctex"
+uid="uid://bfroveu0kbi3x"
+path="res://.godot/imported/rolling enemy robot.png-23ea1df9c5743846152d91c62b5208df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Robot Sprite/Platform Robot (1).png"
-dest_files=["res://.godot/imported/Platform Robot (1).png-8b4a81d17cc184efeeaf0c6d45d65ed5.ctex"]
+source_file="res://Sprites/Robot Sprite/rolling enemy robot.png"
+dest_files=["res://.godot/imported/rolling enemy robot.png-23ea1df9c5743846152d91c62b5208df.ctex"]
 
 [params]
 
