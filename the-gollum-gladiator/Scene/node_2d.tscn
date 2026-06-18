@@ -30,6 +30,7 @@ sources/0 = SubResource("TileSetAtlasSource_blrne")
 [node name="level 1" type="Node2D" unique_id=811445578]
 
 [node name="player" parent="." unique_id=1683201909 instance=ExtResource("1_vtyw1")]
+position = Vector2(-3480, 40)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1685602300]
 tile_set = SubResource("TileSet_3opw3")

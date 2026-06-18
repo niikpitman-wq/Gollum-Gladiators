@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://jya07q87f83q" path="res://Scripts/roll_enemy.gd" id="1_i3gjp"]
 [ext_resource type="Texture2D" uid="uid://bpgjkom4ttvvh" path="res://Sprites/Robot Sprite/Idle enemy robot.png" id="2_fxfew"]
 [ext_resource type="Texture2D" uid="uid://bfroveu0kbi3x" path="res://Sprites/Robot Sprite/rolling enemy robot.png" id="3_5bw57"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gjp"]
-size = Vector2(240, 16)
+[ext_resource type="Script" uid="uid://bhpxeqssy0ptr" path="res://Scripts/area_2d.gd" id="4_fxfew"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
 atlas = ExtResource("2_fxfew")
@@ -73,34 +71,34 @@ animations = [{
 }],
 "loop": true,
 "name": &"enemy_walk",
-"speed": 5.0
+"speed": 24.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hb8ge"]
 radius = 152.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gjp"]
+size = Vector2(0, 0)
+
 [node name="roll_enemy" type="CharacterBody2D" unique_id=1270026084]
 script = ExtResource("1_i3gjp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1234896693]
-position = Vector2(0, 144)
-shape = SubResource("RectangleShape2D_i3gjp")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=472419230]
 sprite_frames = SubResource("SpriteFrames_3yqyl")
-animation = &"enemy_idle"
-autoplay = "enemy_idle"
-frame_progress = 0.62722147
-
-[node name="rightray" type="RayCast2D" parent="." unique_id=1547797725]
-position = Vector2(128, 64)
-target_position = Vector2(0, 128)
-
-[node name="Leftray" type="RayCast2D" parent="." unique_id=1455699311]
-position = Vector2(-128, 64)
-target_position = Vector2(0, 128)
+animation = &"enemy_walk"
+autoplay = "enemy_walk"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=359429909]
+script = ExtResource("4_fxfew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1766616006]
 shape = SubResource("CircleShape2D_hb8ge")
+
+[node name="edge_ray" type="RayCast2D" parent="." unique_id=1455699311]
+position = Vector2(-96, 64)
+scale = Vector2(10, 10)
+target_position = Vector2(0, 19.199999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472353113]
+position = Vector2(0, 152)
+shape = SubResource("RectangleShape2D_i3gjp")
