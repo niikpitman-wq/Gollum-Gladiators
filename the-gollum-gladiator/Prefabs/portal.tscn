@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0kaswdm61r2w"]
+
+[ext_resource type="Texture2D" uid="uid://dwuasnvdhp0xf" path="res://Red Robot Parts (1).png" id="1_166xh"]
+[ext_resource type="Script" uid="uid://c7f35jr3r5lof" path="res://Scripts/portal.gd" id="1_umd7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvxua"]
+size = Vector2(144, 216)
+
+[node name="Portal" type="Area2D" unique_id=1006197125]
+script = ExtResource("1_umd7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1030992327]
+position = Vector2(224, 0)
+texture = ExtResource("1_166xh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=738203112]
+position = Vector2(216, 48)
+shape = SubResource("RectangleShape2D_xvxua")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

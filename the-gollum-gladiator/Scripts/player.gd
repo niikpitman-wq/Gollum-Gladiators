@@ -1,13 +1,12 @@
-
 extends CharacterBody2D
 
 
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 900.0
-const JUMP_VELOCITY = -980.0
+const JUMP_VELOCITY = -1000.0
 var jump_count = 0
-var star_position = Vector2(-3480.0,40.0)
+var start_position = Vector2(-3496.0,200.0)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -46,8 +45,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animation.animation != "double_jump" or not animation.is_playing():
 			animation.play("jump")
-
-# --- ADDED DEATH FUNCTION BELOW ---
-func die() -> void:
-	print("Player was killed!")
-	get_tree().reload_current_scene()
+	
+	#Respawn
+func respawn():
+	position = start_position

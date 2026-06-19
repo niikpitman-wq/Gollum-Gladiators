@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bhcofg7cs1kx5" path="res://Prefabs/character_body_2d.tscn" id="1_vtyw1"]
 [ext_resource type="PackedScene" uid="uid://y7xti41riiba" path="res://Prefabs/roll_enemy.tscn" id="3_gj2p5"]
+[ext_resource type="Texture2D" uid="uid://bmapixi5ypsi" path="res://Red Robot Parts.png" id="4_l42dj"]
+[ext_resource type="PackedScene" uid="uid://dglt6wss1duxr" path="res://Prefabs/spikes.tscn" id="5_60wmb"]
+[ext_resource type="PackedScene" uid="uid://c0kaswdm61r2w" path="res://Prefabs/portal.tscn" id="6_irwgg"]
 [ext_resource type="Texture2D" uid="uid://bajy5e71mhgp0" path="res://Sprites/Robot Sprite/Platform Robot (2).png" id="7_xvxua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_blrne"]
@@ -27,15 +30,105 @@ tile_size = Vector2i(160, 160)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_blrne")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60wmb"]
+texture = ExtResource("4_l42dj")
+texture_region_size = Vector2i(160, 160)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+
+[sub_resource type="TileSet" id="TileSet_irwgg"]
+tile_size = Vector2i(160, 160)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_60wmb")
+
 [node name="level 1" type="Node2D" unique_id=811445578]
 
 [node name="player" parent="." unique_id=1683201909 instance=ExtResource("1_vtyw1")]
-position = Vector2(-3480, 40)
+position = Vector2(-3496, 200)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1685602300]
+[node name="Platforms" type="TileMap" parent="." unique_id=1685602300]
 tile_set = SubResource("TileSet_3opw3")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131070, 65536, 0, -131069, 65536, 0, -131068, 65536, 0, -131067, 65536, 0, -131066, 65536, 0, -131071, 0, 0, -131065, 131072, 0, -262147, 131072, 0, -262148, 65536, 0, -262149, 65536, 0, -262150, 65536, 0, -262151, 65536, 0, -262152, 0, 0, 131071, 65536, 1, 131069, 65536, 1, 131067, 65536, 1, 131065, 65536, 1, 131063, 65536, 1, 131061, 65536, 1, 131059, 65536, 1, 131057, 65536, 1, 131055, 65536, 1, 131053, 65536, 1, 131051, 65536, 1, 65537, 65536, 1, 65539, 65536, 1, 65541, 65536, 1, 65543, 65536, 1, 65545, 65536, 1, 65547, 65536, 1, 65549, 65536, 1, 65548, 131072, 1, 65546, 131072, 1, 65544, 131072, 1, 65542, 131072, 1, 65540, 131072, 1, 65538, 131072, 1, 65536, 131072, 1, 131070, 131072, 1, 131068, 131072, 1, 131066, 131072, 1, 131064, 131072, 1, 131062, 131072, 1, 131060, 131072, 1, 131058, 131072, 1, 131056, 131072, 1, 131054, 131072, 1, 131052, 131072, 1, 131050, 0, 1, 65550, 0, 2)
+layer_0/tile_data = PackedInt32Array(-131070, 65536, 0, -131069, 65536, 0, -131068, 65536, 0, -131067, 65536, 0, -131066, 65536, 0, -131071, 0, 0, -131065, 131072, 0, -262147, 131072, 0, -262148, 65536, 0, -262149, 65536, 0, -262150, 65536, 0, -262151, 65536, 0, -262152, 0, 0, -327702, 0, 0, -327701, 65536, 0, -327700, 65536, 0, -327699, 65536, 0, -327698, 65536, 0, -327697, 65536, 0, -327696, 131072, 0, -655374, 0, 0, -655373, 65536, 0, -655372, 65536, 0, -655371, 65536, 0, -655370, 65536, 0, -655369, 65536, 0, -655368, 65536, 0, -655367, 65536, 0, -655366, 131072, 0, -393208, 0, 0, -393207, 65536, 0, -393206, 65536, 0, -393205, 65536, 0, -393204, 65536, 0, -393203, 65536, 0, -393202, 131072, 0, -851959, 131072, 0, -851960, 65536, 0, -851961, 65536, 0, -851962, 65536, 0, -851963, 65536, 0, -851964, 65536, 0, -851965, 65536, 0, -851966, 65536, 0, -851967, 65536, 0, -851968, 0, 0, -1114135, 0, 0, -1114134, 65536, 0, -1114133, 65536, 0, -1114132, 65536, 0, -1114131, 65536, 0, -1114130, 65536, 0, -1114129, 65536, 0, -1114128, 131072, 0, -1245190, 0, 0, -1245189, 131072, 0, -1310717, 0, 0, -1310716, 65536, 0, -1310715, 131072, 0)
 
 [node name="roll_enemy" parent="." unique_id=1270026084 instance=ExtResource("3_gj2p5")]
 position = Vector2(664, -472)
+
+[node name="roll_enemy" parent="roll_enemy" unique_id=61711318 instance=ExtResource("3_gj2p5")]
+position = Vector2(984, -624)
+
+[node name="roll_enemy" parent="roll_enemy/roll_enemy" unique_id=1500140663 instance=ExtResource("3_gj2p5")]
+position = Vector2(-3096, -816)
+
+[node name="roll_enemy" parent="roll_enemy/roll_enemy/roll_enemy" unique_id=1791414296 instance=ExtResource("3_gj2p5")]
+position = Vector2(-1368, -1064)
+
+[node name="Ground and wall" type="TileMap" parent="." unique_id=1613033147]
+tile_set = SubResource("TileSet_irwgg")
+format = 2
+layer_0/tile_data = PackedInt32Array(196584, 0, 3, 196586, 0, 3, 196588, 0, 3, 196590, 0, 3, 196592, 0, 3, 196594, 0, 3, 196596, 0, 3, 196598, 0, 3, 196600, 0, 3, 196602, 0, 3, 196604, 0, 3, 196606, 0, 3, 131072, 0, 3, 131074, 0, 3, 131076, 0, 3, 131078, 0, 3, 131080, 0, 3, 131082, 0, 3, 131084, 0, 3, 131086, 0, 3, 196585, 196608, 3, 196587, 196608, 3, 196589, 196608, 3, 196591, 196608, 3, 196593, 196608, 3, 196595, 196608, 3, 196597, 196608, 3, 196599, 196608, 3, 196601, 196608, 3, 196603, 196608, 3, 196605, 196608, 3, 196607, 196608, 3, 131073, 196608, 3, 131075, 196608, 3, 131077, 196608, 3, 131079, 196608, 3, 131081, 196608, 3, 131083, 196608, 3, 131085, 196608, 3, 131087, 196608, 3, 196583, 0, 1, 131088, 65536, 1, 65552, 196608, 1, -65520, 196608, 1, -196592, 196608, 1, -327664, 196608, 1, -458736, 196608, 1, -589808, 196608, 1, -720880, 196608, 1, -851952, 196608, 1, -983024, 196608, 1, -1114096, 196608, 1, -1245168, 196608, 1, -1376240, 196608, 1, -1507312, 196608, 0, 16, 196608, 0, -131056, 196608, 0, -262128, 196608, 0, -393200, 196608, 0, -524272, 196608, 0, -655344, 196608, 0, -786416, 196608, 0, -917488, 196608, 0, -1048560, 196608, 0, -1179632, 196608, 0, -1310704, 196608, 0, -1441776, 196608, 0, 131047, 131072, 1, -25, 131072, 1, -131097, 131072, 1, -262169, 131072, 1, -393241, 131072, 1, -524313, 131072, 1, -655385, 131072, 1, -786457, 131072, 1, -917529, 131072, 1, -1048601, 131072, 1, -1179673, 131072, 1, -1310745, 131072, 1, -1441817, 131072, 1, 65511, 131072, 0, -65561, 131072, 0, -196633, 131072, 0, -327705, 131072, 0, -458777, 131072, 0, -589849, 131072, 0, -720921, 131072, 0, -851993, 131072, 0, -983065, 131072, 0, -1114137, 131072, 0, -1245209, 131072, 0, -1376281, 131072, 0, -1507353, 0, 0, -1572848, 65536, 0, -1572849, 196608, 2, -1572851, 196608, 2, -1572853, 196608, 2, -1572855, 196608, 2, -1572857, 196608, 2, -1572859, 196608, 2, -1572861, 196608, 2, -1572863, 196608, 2, -1507329, 196608, 2, -1507331, 196608, 2, -1507333, 196608, 2, -1507335, 196608, 2, -1507337, 196608, 2, -1507339, 196608, 2, -1507341, 196608, 2, -1507343, 196608, 2, -1507345, 196608, 2, -1507347, 196608, 2, -1507349, 196608, 2, -1507351, 196608, 2, -1507352, 0, 2, -1507350, 0, 2, -1507348, 0, 2, -1507346, 0, 2, -1507344, 0, 2, -1507342, 0, 2, -1507340, 0, 2, -1507338, 0, 2, -1507336, 0, 2, -1507334, 0, 2, -1507332, 0, 2, -1507330, 0, 2, -1572864, 0, 2, -1572862, 0, 2, -1572860, 0, 2, -1572858, 0, 2, -1572856, 0, 2, -1572854, 0, 2, -1572852, 0, 2, -1572850, 0, 2, -1376241, 65536, 2, -1376242, 0, 2, -1376243, 196608, 2, -1376244, 131072, 2)
+
+[node name="Spikes" parent="." unique_id=2008313243 instance=ExtResource("5_60wmb")]
+position = Vector2(-2296, 160)
+
+[node name="Spikes" parent="Spikes" unique_id=547587407 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99997, 1.5258789e-05)
+rotation = -0.0024825095
+
+[node name="Spikes" parent="Spikes/Spikes" unique_id=1395688010 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99902, 0.7943878)
+
+[node name="Spikes" parent="Spikes/Spikes/Spikes" unique_id=497361749 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99905, 0.7943878)
+
+[node name="Spikes" parent="Spikes/Spikes/Spikes/Spikes" unique_id=1273059968 instance=ExtResource("5_60wmb")]
+position = Vector2(319.999, 0.7944336)
+
+[node name="Spikes2" parent="Spikes" unique_id=1397163789 instance=ExtResource("5_60wmb")]
+position = Vector2(2456, 0)
+
+[node name="Spikes" parent="Spikes/Spikes2" unique_id=244000973 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99997, 1.5258789e-05)
+rotation = -0.0024825095
+
+[node name="Spikes" parent="Spikes/Spikes2/Spikes" unique_id=1032519674 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99902, 0.7943878)
+
+[node name="Spikes" parent="Spikes/Spikes2/Spikes/Spikes" unique_id=310685206 instance=ExtResource("5_60wmb")]
+position = Vector2(319.99905, 0.7943878)
+
+[node name="Spikes" parent="Spikes/Spikes2/Spikes/Spikes/Spikes" unique_id=515596358 instance=ExtResource("5_60wmb")]
+position = Vector2(319.999, 0.7944336)
+
+[node name="Portal" parent="." unique_id=1006197125 instance=ExtResource("6_irwgg")]
+position = Vector2(2336, -3528)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8edfv56bokj5"
-path="res://.godot/imported/Red Robot Parts.png-e175f6dd7dd8d9b28a9ce654392268f7.ctex"
+uid="uid://cr7hykw2cf1cw"
+path="res://.godot/imported/spikes.png-4a2427e7b6483a335646e762227cfd31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Robot Sprite/Red Robot Parts.png"
-dest_files=["res://.godot/imported/Red Robot Parts.png-e175f6dd7dd8d9b28a9ce654392268f7.ctex"]
+source_file="res://spikes.png"
+dest_files=["res://.godot/imported/spikes.png-4a2427e7b6483a335646e762227cfd31.ctex"]
 
 [params]
 
