@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0kaswdm61r2w"]
 
-[ext_resource type="Texture2D" uid="uid://dwuasnvdhp0xf" path="res://Red Robot Parts (1).png" id="1_166xh"]
+[ext_resource type="Texture2D" uid="uid://dwuasnvdhp0xf" path="res://Sprites/Robot Sprite/Red Robot Parts (1).png" id="1_166xh"]
 [ext_resource type="Script" uid="uid://c7f35jr3r5lof" path="res://Scripts/portal.gd" id="1_umd7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvxua"]

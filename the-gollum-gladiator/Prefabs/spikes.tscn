@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://dglt6wss1duxr"]
 
 [ext_resource type="Script" uid="uid://cgrghy2ahg3mx" path="res://Scripts/spikes.gd" id="1_gcycj"]
-[ext_resource type="Texture2D" uid="uid://cr7hykw2cf1cw" path="res://spikes.png" id="1_pl42p"]
+[ext_resource type="Texture2D" uid="uid://cr7hykw2cf1cw" path="res://Sprites/Robot Sprite/spikes.png" id="1_pl42p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcycj"]
-size = Vector2(320, 128)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gcycj"]
+a = Vector2(-112, -64)
+b = Vector2(112, -64)
 
 [node name="Spikes" type="Area2D" unique_id=2008313243]
 script = ExtResource("1_gcycj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626964433]
-position = Vector2(0, 96)
-shape = SubResource("RectangleShape2D_gcycj")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1084367402]
 texture = ExtResource("1_pl42p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626964433]
+position = Vector2(0, 96)
+shape = SubResource("SegmentShape2D_gcycj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -163,4 +163,5 @@ shape = SubResource("RectangleShape2D_bjha6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1990790123]
 position = Vector2(0, -128)
-zoom = Vector2(0.5, 0.5)
+skew = 0.04712389
+zoom = Vector2(0.3, 0.3)

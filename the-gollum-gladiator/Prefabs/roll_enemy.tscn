@@ -95,12 +95,12 @@ script = ExtResource("4_5bw57")
 shape = SubResource("CircleShape2D_hb8ge")
 
 [node name="edge_ray" type="RayCast2D" parent="." unique_id=1455699311]
-position = Vector2(-96, 64)
+position = Vector2(-144, 3.8146973e-06)
 scale = Vector2(10, 10)
-target_position = Vector2(0, 19.199999)
+target_position = Vector2(0, 31.999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472353113]
-position = Vector2(0, 152)
+position = Vector2(0, 145)
 shape = SubResource("RectangleShape2D_i3gjp")
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
