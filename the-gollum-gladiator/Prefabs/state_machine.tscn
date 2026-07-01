@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dcbqt6eul81xy"]
+
+[ext_resource type="Script" uid="uid://ccl2511i33ggg" path="res://scripts/state_machince/state_machine.gd" id="1_ahvgy"]
+[ext_resource type="Script" uid="uid://b2mvxi012ti6g" path="res://scripts/states/move_state.gd" id="2_julof"]
+[ext_resource type="Script" uid="uid://c78pqqumuyngq" path="res://scripts/states/idle_state.gd" id="3_irr8o"]
+[ext_resource type="Script" uid="uid://ba2kbshlosh4m" path="res://scripts/states/jump_state.gd" id="4_piayb"]
+[ext_resource type="Script" uid="uid://c3oetl442v6p" path="res://scripts/states/dash_state.gd" id="5_lw8mq"]
+
+[node name="State_Machine" type="Node" unique_id=922813162 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_ahvgy")
+starting_state = NodePath("idle")
+metadata/_custom_type_script = "uid://ccl2511i33ggg"
+
+[node name="move" type="Node" parent="." unique_id=1769852006 node_paths=PackedStringArray("idle_state", "jump_state")]
+script = ExtResource("2_julof")
+idle_state = NodePath("../idle")
+jump_state = NodePath("../jump")
+animation_name = "run"
+metadata/_custom_type_script = "uid://7yk7kmaj2swm"
+
+[node name="idle" type="Node" parent="." unique_id=676193779 node_paths=PackedStringArray("jump_state", "move_state")]
+script = ExtResource("3_irr8o")
+jump_state = NodePath("../jump")
+move_state = NodePath("../move")
+animation_name = "idle"
+metadata/_custom_type_script = "uid://7yk7kmaj2swm"
+
+[node name="jump" type="Node" parent="." unique_id=429493968 node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("4_piayb")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+animation_name = "roll"
+metadata/_custom_type_script = "uid://7yk7kmaj2swm"
+
+[node name="dash" type="Node" parent="." unique_id=1624446155]
+script = ExtResource("5_lw8mq")
+metadata/_custom_type_script = "uid://7yk7kmaj2swm"
