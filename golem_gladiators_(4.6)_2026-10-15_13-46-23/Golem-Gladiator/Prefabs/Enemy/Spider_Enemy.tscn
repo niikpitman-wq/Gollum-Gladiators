@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bk5udbv8opi26"]
+
+[ext_resource type="Script" uid="uid://bgxgjemgr1d1b" path="res://Prefabs/Enemy/spider_enemy.gd" id="1_co0yb"]
+[ext_resource type="Texture2D" uid="uid://dpmlcg2frf78o" path="res://Sprites/Enemy 4 legged spider (1).png" id="2_0p63s"]
+[ext_resource type="Texture2D" uid="uid://mar2toy6c3pf" path="res://Sprites/HealthBar/Insides_HealthBar.png" id="3_j3877"]
+[ext_resource type="Texture2D" uid="uid://btn6mxouki27h" path="res://Sprites/HealthBar/Boarder_HealthBar.png" id="4_0x4l3"]
+[ext_resource type="Texture2D" uid="uid://b5o0jk3j18awf" path="res://Sprites/HealthBar/Progress_HealthBar.png" id="5_axbg6"]
+[ext_resource type="Script" uid="uid://c0siuwqbtxw2c" path="res://Scripts/universal/enemy_health_bar.gd" id="6_hoxxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o732h"]
+atlas = ExtResource("2_0p63s")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk1wa"]
+atlas = ExtResource("2_0p63s")
+region = Rect2(0, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3877"]
+atlas = ExtResource("2_0p63s")
+region = Rect2(112, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x4l3"]
+atlas = ExtResource("2_0p63s")
+region = Rect2(224, 112, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ltt")
+}],
+"loop": true,
+"name": &"enemy_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o732h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk1wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3877")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x4l3")
+}],
+"loop": true,
+"name": &"enemy_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bmd6"]
+size = Vector2(297.143, 125.71434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gjp"]
+size = Vector2(274.2859, 114.28567)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co0yb"]
+size = Vector2(45.71434, 22.857178)
+
+[node name="Spider_Enemy" type="CharacterBody2D" unique_id=1270026084]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_co0yb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=472419230]
+position = Vector2(1.9073486e-06, -5.7142982)
+scale = Vector2(2.4489796, 2.3469388)
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"enemy_walk"
+autoplay = "enemy_walk"
+frame_progress = 0.09309197
+
+[node name="Kill" type="Area2D" parent="." unique_id=359429909]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill" unique_id=1766616006]
+position = Vector2(-6.8119573e-07, -5.714263)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_2bmd6")
+
+[node name="edge_ray" type="RayCast2D" parent="." unique_id=1455699311]
+position = Vector2(-144, 3.8146973e-06)
+scale = Vector2(10, 10)
+target_position = Vector2(0, 31.999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472353113]
+position = Vector2(1.9073483e-05, 68.57137)
+scale = Vector2(0.99999905, 0.99999905)
+shape = SubResource("RectangleShape2D_i3gjp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=313752316]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1048785379]
+position = Vector2(-7.6293945e-06, -68.57142)
+scale = Vector2(0.9999976, 0.9999976)
+shape = SubResource("RectangleShape2D_co0yb")
+
+[node name="EnemyHealthBar" type="TextureProgressBar" parent="." unique_id=1202475168]
+offset_left = -45.714287
+offset_top = -102.85714
+offset_right = 18.285713
+offset_bottom = -86.85714
+scale = Vector2(1.4985342, 0.9996375)
+value = 20.0
+texture_under = ExtResource("3_j3877")
+texture_over = ExtResource("4_0x4l3")
+texture_progress = ExtResource("5_axbg6")
+tint_progress = Color(0.7647059, 0, 0, 1)
+script = ExtResource("6_hoxxs")
+
+[connection signal="body_entered" from="Kill" to="." method="_on_kill_body_entered"]

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cjw36m6vvwhe0"]
+
+[ext_resource type="Script" uid="uid://bj65lhj7afs1c" path="res://Scripts/mark_entry_1.gd" id="1_u0ga0"]
+[ext_resource type="Texture2D" uid="uid://8edfv56bokj5" path="res://Sprites/Robot Sprite/Red Robot Parts.png" id="2_jdi3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dcjl"]
+atlas = ExtResource("2_jdi3v")
+region = Rect2(352, 1056, 352, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54wys"]
+atlas = ExtResource("2_jdi3v")
+region = Rect2(704, 1056, 352, 352)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vd7fh"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_4dcjl")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_54wys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0l7w"]
+size = Vector2(40, 136)
+
+[node name="mark_entry1" type="Area2D" unique_id=2074121003]
+script = ExtResource("1_u0ga0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2056776145]
+position = Vector2(144, -306.5)
+scale = Vector2(1, 1.03125)
+sprite_frames = SubResource("SpriteFrames_vd7fh")
+autoplay = "default"
+frame_progress = 0.4940992
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=995243458]
+position = Vector2(148, -196)
+shape = SubResource("RectangleShape2D_p0l7w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

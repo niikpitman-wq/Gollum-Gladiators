@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dyt6xfjjm56e"]
+
+[ext_resource type="Script" uid="uid://d6qievb0lnov" path="res://Scripts/Buttons/screen_button.gd" id="1_erbmx"]
+
+[node name="home_screen" type="Node2D" unique_id=1738506837]
+
+[node name="screen" type="Button" parent="." unique_id=1807996098]
+offset_left = -8248.0
+offset_top = -3416.0
+offset_right = 7832.0
+offset_bottom = 7296.0
+script = ExtResource("1_erbmx")
+initial_scene = &"uid://djjfe5p5ebjna"
+
+[node name="main_title" type="Label" parent="." unique_id=1126966941]
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 1115.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 128
+text = "Golem Gladiators"
+
+[connection signal="pressed" from="screen" to="screen" method="_on_pressed"]

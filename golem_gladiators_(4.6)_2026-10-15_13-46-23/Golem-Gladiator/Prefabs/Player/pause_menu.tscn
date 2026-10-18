@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://dggx4tefvr7a6"]
+
+[ext_resource type="Shader" uid="uid://e20coiqcs1lj" path="res://Prefabs/Player/pause_menu.gdshader" id="1_i1lwp"]
+[ext_resource type="Script" uid="uid://c8q32ld3hvt8l" path="res://Scripts/universal/pause_menu.gd" id="1_seyd3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0pomt"]
+shader = ExtResource("1_i1lwp")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_8fb02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pause_menu_menu/ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pause_menu_menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v8rel"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pause_menu_menu/ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.886000042085]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pause_menu_menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48nfl"]
+_data = {
+&"RESET": SubResource("Animation_8fb02"),
+&"blur": SubResource("Animation_v8rel")
+}
+
+[node name="pause_menu" type="Control" unique_id=1642877298]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_seyd3")
+initial_scene = &"uid://djjfe5p5ebjna"
+
+[node name="pause_menu_menu" type="PanelContainer" parent="." unique_id=128605405]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 240.0
+offset_top = 168.0
+offset_right = 856.0
+offset_bottom = 560.0
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu_menu" unique_id=1692954780]
+material = SubResource("ShaderMaterial_0pomt")
+layout_mode = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+
+[node name="pause_menu_buttons" type="VBoxContainer" parent="pause_menu_menu" unique_id=919763965]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="pause_menu_menu/pause_menu_buttons" unique_id=1920359857]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Golem Gladiators"
+horizontal_alignment = 1
+
+[node name="pause" type="Label" parent="pause_menu_menu/pause_menu_buttons" unique_id=1927182331]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="resume" type="Button" parent="pause_menu_menu/pause_menu_buttons" unique_id=176767747]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume
+"
+
+[node name="restart" type="Button" parent="pause_menu_menu/pause_menu_buttons" unique_id=244506864]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Restart
+"
+
+[node name="settings" type="Button" parent="pause_menu_menu/pause_menu_buttons" unique_id=283180059]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+
+[node name="quit" type="Button" parent="pause_menu_menu/pause_menu_buttons" unique_id=475415323]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1445601034]
+libraries/ = SubResource("AnimationLibrary_48nfl")
+
+[connection signal="pressed" from="pause_menu_menu/pause_menu_buttons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pause_menu_menu/pause_menu_buttons/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="pause_menu_menu/pause_menu_buttons/quit" to="." method="_on_quit_pressed"]

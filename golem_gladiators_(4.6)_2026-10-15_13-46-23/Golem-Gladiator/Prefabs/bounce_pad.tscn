@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://urvyfdiu06sn"]
+
+[ext_resource type="Script" uid="uid://fowd7nuvtgob" path="res://Scripts/universal/bounce_pad.gd" id="1_abult"]
+[ext_resource type="Texture2D" uid="uid://ur0kau55svgg" path="res://Sprites/Bounce Pad.png" id="2_abult"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abult"]
+atlas = ExtResource("2_abult")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gydf"]
+atlas = ExtResource("2_abult")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20j2x"]
+atlas = ExtResource("2_abult")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm6db"]
+atlas = ExtResource("2_abult")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oii7"]
+atlas = ExtResource("2_abult")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oolw8"]
+atlas = ExtResource("2_abult")
+region = Rect2(32, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eptp"]
+atlas = ExtResource("2_abult")
+region = Rect2(32, 32, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gydf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abult")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gydf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20j2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm6db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oii7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oolw8")
+}],
+"loop": true,
+"name": &"not_read_pad",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eptp")
+}],
+"loop": true,
+"name": &"ready_pad",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jtjlm"]
+a = Vector2(-64, -32)
+b = Vector2(-8, -32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(24, 32)
+
+[node name="bounce_pad" type="Area2D" unique_id=601692454]
+script = ExtResource("1_abult")
+
+[node name="sprite_pad" type="AnimatedSprite2D" parent="." unique_id=149693683]
+position = Vector2(-810.73645, -2504.5696)
+scale = Vector2(2.249999, 4.4999967)
+sprite_frames = SubResource("SpriteFrames_1gydf")
+animation = &"ready_pad"
+offset = Vector2(362.1053, 548.5714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1318997721]
+position = Vector2(40, -8)
+shape = SubResource("SegmentShape2D_jtjlm")
+
+[node name="bounce_pad_cooldown" type="Timer" parent="." unique_id=1702357914]
+wait_time = 3.0
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1803589402]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1005632992]
+position = Vector2(24, -12)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_g7b7a")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=209475960]
+position = Vector2(-16, -12)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_g7b7a")
+one_way_collision = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="bounce_pad_cooldown" to="." method="_on_bounce_pad_cooldown_timeout"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c763jeak030ni"]
+
+[ext_resource type="Texture2D" uid="uid://dijq80yx3xbjv" path="res://Sprites/Blunt Spikes.png" id="1_bovbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(48, 24)
+
+[node name="BluntSpikes" type="StaticBody2D" unique_id=1974910553]
+
+[node name="spike" type="Sprite2D" parent="." unique_id=1449596085]
+position = Vector2(0, -12)
+scale = Vector2(1, 1.375)
+texture = ExtResource("1_bovbm")
+
+[node name="spike_collision" type="CollisionShape2D" parent="." unique_id=101022930]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_g7b7a")

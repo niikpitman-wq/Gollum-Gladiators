@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bujckkuqg8eow"]
+
+[ext_resource type="Script" uid="uid://bkculd4dmc73f" path="res://Scripts/Buttons/back_button.gd" id="1_r2sbi"]
+[ext_resource type="Script" uid="uid://uh8n2rpuoe0b" path="res://Scripts/Buttons/tutorial_move_button.gd" id="2_q0xtq"]
+[ext_resource type="Script" uid="uid://bkgac1d44brgx" path="res://Scripts/Buttons/tutorial_attack_button.gd" id="3_q0xtq"]
+[ext_resource type="Script" uid="uid://dikcbxt0t1xhu" path="res://Scripts/Buttons/tutorial_more_button.gd" id="4_iaa2e"]
+
+[node name="tutorial_screen" type="Node2D" unique_id=1827370595]
+
+[node name="menu_camera" type="Camera2D" parent="." unique_id=1609196570]
+position = Vector2(576, 320.00003)
+scale = Vector2(20, 20)
+
+[node name="back_button_tutorial" type="Button" parent="." unique_id=990022444]
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 232.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 64
+text = "Back
+
+"
+script = ExtResource("1_r2sbi")
+initial_scene = &"uid://djjfe5p5ebjna"
+
+[node name="tutorial_move_button" type="Button" parent="." unique_id=796537275]
+offset_left = 64.0
+offset_top = 224.0
+offset_right = 240.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 64
+text = "Moves
+
+"
+script = ExtResource("2_q0xtq")
+initial_scene = &"uid://bu41lyd4frahp"
+
+[node name="tutorial_attack_button" type="Button" parent="." unique_id=1245528083]
+offset_left = 64.0
+offset_top = 368.0
+offset_right = 224.0
+offset_bottom = 464.0
+theme_override_font_sizes/font_size = 64
+text = "attacks
+
+
+"
+script = ExtResource("3_q0xtq")
+initial_scene = &"uid://dm58wsqtstxwt"
+
+[node name="tutorial_more_button" type="Button" parent="." unique_id=848208905]
+offset_left = 56.0
+offset_top = 512.0
+offset_right = 232.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 64
+text = "More
+
+
+
+"
+script = ExtResource("4_iaa2e")
+initial_scene = &"uid://d2fyskespsjvg"
+
+[connection signal="pressed" from="back_button_tutorial" to="back_button_tutorial" method="_on_pressed"]
+[connection signal="pressed" from="tutorial_move_button" to="tutorial_move_button" method="_on_pressed"]
+[connection signal="pressed" from="tutorial_attack_button" to="tutorial_attack_button" method="_on_pressed"]
+[connection signal="pressed" from="tutorial_more_button" to="tutorial_more_button" method="_on_pressed"]

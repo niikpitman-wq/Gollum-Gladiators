@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://y7xti41riiba"]
+
+[ext_resource type="Script" uid="uid://dvsgsq5ni3f4u" path="res://Old stuff maybe usefull/roll_enemy.gd" id="1_etbje"]
+[ext_resource type="Texture2D" uid="uid://16bk4aa7e7bx" path="res://Old stuff maybe usefull/rolling enemy robot.png" id="1_qou3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etbje"]
+atlas = ExtResource("1_qou3y")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jfbl"]
+atlas = ExtResource("1_qou3y")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8skaj"]
+atlas = ExtResource("1_qou3y")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3agt"]
+atlas = ExtResource("1_qou3y")
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ltt")
+}],
+"loop": true,
+"name": &"enemy_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etbje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jfbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8skaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3agt")
+}],
+"loop": true,
+"name": &"enemy_walk",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bmd6"]
+size = Vector2(297.143, 125.71434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gjp"]
+size = Vector2(0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gyjq7"]
+radius = 131.42876
+height = 262.8575
+
+[node name="roll_enemy" type="CharacterBody2D" unique_id=1270026084]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_etbje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=472419230]
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"enemy_walk"
+autoplay = "enemy_walk"
+frame_progress = 0.7436712
+
+[node name="Kill" type="Area2D" parent="." unique_id=359429909]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill" unique_id=1766616006]
+position = Vector2(-6.8119573e-07, -5.714263)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_2bmd6")
+
+[node name="edge_ray" type="RayCast2D" parent="." unique_id=1455699311]
+position = Vector2(-144, 3.8146973e-06)
+scale = Vector2(10, 10)
+target_position = Vector2(0, 31.999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472353113]
+position = Vector2(0, 145)
+shape = SubResource("RectangleShape2D_i3gjp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=313752316]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1048785379]
+position = Vector2(0, -5.7142715)
+scale = Vector2(0.99999857, 0.99999857)
+shape = SubResource("CapsuleShape2D_gyjq7")
+one_way_collision = true
+
+[connection signal="body_entered" from="Kill" to="." method="_on_kill_body_entered"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c1gc34yn38b2x"]
+
+[ext_resource type="Script" uid="uid://busdmei8lrq0c" path="res://Scripts/Buttons/small_portal_button.gd" id="1_2xmrg"]
+[ext_resource type="Texture2D" uid="uid://dkuvuq4u77t0k" path="res://Sprites/Red Robot Parts (1).png" id="2_yi1kk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7td5q"]
+size = Vector2(128, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(91, 58)
+
+[node name="small_portal_more" type="Area2D" unique_id=368272314]
+script = ExtResource("1_2xmrg")
+initial_scene = &"uid://bujckkuqg8eow"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1369480633]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yi1kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=751194345]
+position = Vector2(51, 27.5)
+shape = SubResource("RectangleShape2D_7td5q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=713120088]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=461894694]
+position = Vector2(67.5, 48)
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

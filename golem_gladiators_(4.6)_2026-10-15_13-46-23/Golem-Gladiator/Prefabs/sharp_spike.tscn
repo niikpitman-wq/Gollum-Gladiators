@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://duvqo2jxi10ti"]
+
+[ext_resource type="Texture2D" uid="uid://cat3v30nblobk" path="res://Sprites/spikes.png" id="1_jtjlm"]
+[ext_resource type="Script" uid="uid://dlt18kesrrw32" path="res://Scripts/universal/sharp_spike.gd" id="1_no0sh"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jtjlm"]
+a = Vector2(-24, -32)
+b = Vector2(24, -32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(64, 8)
+
+[node name="sharp_spike" type="Area2D" unique_id=601692454]
+script = ExtResource("1_no0sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=838807093]
+position = Vector2(-64.42107, -194.85715)
+scale = Vector2(0.20000005, 0.275)
+texture = ExtResource("1_jtjlm")
+offset = Vector2(362.1053, 548.5714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1318997721]
+position = Vector2(8, 0)
+shape = SubResource("SegmentShape2D_jtjlm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=177453204]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1718329408]
+position = Vector2(8, -4)
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

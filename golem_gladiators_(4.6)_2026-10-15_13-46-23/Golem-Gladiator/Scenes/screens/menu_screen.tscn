@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://djjfe5p5ebjna"]
+
+[ext_resource type="Texture2D" uid="uid://bqe055t7y8evf" path="res://Sprites/Main menu template ++.png" id="1_wd1h5"]
+[ext_resource type="Script" uid="uid://d3u1upmlunqpx" path="res://Scripts/Buttons/levels_button.gd" id="2_kvm5u"]
+[ext_resource type="Script" uid="uid://cv36sqpt5jj0q" path="res://Scripts/Buttons/tutorial_button.gd" id="3_lrw1x"]
+[ext_resource type="Script" uid="uid://bt26k6kxlty58" path="res://Scripts/Buttons/quit_button.gd" id="4_23ugn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd1h5"]
+atlas = ExtResource("1_wd1h5")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyc6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1h5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="menu_screen" type="Node2D" unique_id=1661072750]
+metadata/_edit_vertical_guides_ = [-536.0]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=822324601]
+position = Vector2(576, 328)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=819298737]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Camera2D/CanvasLayer" unique_id=2006500294]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_gyc6d")
+metadata/_edit_group_ = true
+
+[node name="levels" type="Button" parent="Camera2D/CanvasLayer" unique_id=1267312984]
+offset_left = 480.0
+offset_top = 64.0
+offset_right = 680.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Levels
+"
+script = ExtResource("2_kvm5u")
+initial_scene = &"uid://djim8hquh5hjv"
+
+[node name="tutorial" type="Button" parent="Camera2D/CanvasLayer" unique_id=84607130]
+offset_left = 456.0
+offset_top = 176.0
+offset_right = 706.0
+offset_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Tutorial
+"
+script = ExtResource("3_lrw1x")
+initial_scene = &"uid://bujckkuqg8eow"
+
+[node name="settings" type="Button" parent="Camera2D/CanvasLayer" unique_id=22127399]
+offset_left = 448.0
+offset_top = 304.0
+offset_right = 704.0
+offset_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Settings
+
+"
+
+[node name="door" type="Button" parent="Camera2D/CanvasLayer" unique_id=34510222]
+offset_left = 472.0
+offset_top = 432.0
+offset_right = 680.0
+offset_bottom = 528.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Door
+
+
+"
+
+[node name="quit" type="Button" parent="Camera2D/CanvasLayer" unique_id=1583325074]
+offset_left = 504.0
+offset_top = 544.0
+offset_right = 646.0
+offset_bottom = 640.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Quit
+
+
+
+"
+script = ExtResource("4_23ugn")
+initial_scene = &"uid://dyt6xfjjm56e"
+
+[connection signal="pressed" from="Camera2D/CanvasLayer/levels" to="Camera2D/CanvasLayer/levels" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/tutorial" to="Camera2D/CanvasLayer/tutorial" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/quit" to="Camera2D/CanvasLayer/quit" method="_on_pressed"]

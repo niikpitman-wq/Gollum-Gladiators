@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://djim8hquh5hjv"]
+
+[ext_resource type="Script" uid="uid://cejorcfgjhtsu" path="res://Scripts/Buttons/back_levels.gd" id="1_xbt3x"]
+[ext_resource type="Script" uid="uid://ckyl4sngyu8bq" path="res://Scripts/Buttons/level_1.gd" id="2_mk52f"]
+
+[node name="levels_screen" type="Node2D" unique_id=1866287990]
+
+[node name="menu_camera" type="Camera2D" parent="." unique_id=1283106771]
+position = Vector2(576, 320.00003)
+scale = Vector2(20, 20)
+
+[node name="back_levels" type="Button" parent="." unique_id=544858101]
+offset_left = 496.0
+offset_top = 536.0
+offset_right = 656.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 64
+text = "Back
+
+"
+script = ExtResource("1_xbt3x")
+initial_scene = &"uid://djjfe5p5ebjna"
+
+[node name="Level 1" type="Button" parent="." unique_id=724086441]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 224.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 64
+text = "Level 1
+
+"
+script = ExtResource("2_mk52f")
+initial_scene = &"uid://ck4kjs5a0vj62"
+
+[connection signal="pressed" from="back_levels" to="back_levels" method="_on_pressed"]
+[connection signal="pressed" from="Level 1" to="Level 1" method="_on_pressed"]
